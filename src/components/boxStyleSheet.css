@@ -1,0 +1,20 @@
+.box {
+  text-align: center;
+  border-left: hidden;
+  border-right: hidden;
+  border-top: hidden;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin: 0;
+  font-weight: semi bold;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.box:hover {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  position: relative;
+  left: -1px;
+}
+
+.box:focus {
+  outline: none;
+}

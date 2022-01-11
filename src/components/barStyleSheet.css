@@ -1,0 +1,202 @@
+#container {
+  width: 1000px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+
+#bcontainer {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#string {
+  height: 1px;
+  width: 100%;
+  background: black;
+  position: absolute;
+  bottom: 20%;
+  opacity: 0.25;
+}
+
+#string2 {
+  height: 1px;
+  width: 100%;
+  background: black;
+  position: absolute;
+  bottom: 40%;
+  opacity: 0.25;
+}
+
+#string3 {
+  height: 1px;
+  width: 100%;
+  background: black;
+  position: absolute;
+  bottom: 60%;
+  opacity: 0.25;
+}
+
+#string4 {
+  height: 1px;
+  width: 100%;
+  background: black;
+  position: absolute;
+  bottom: 80%;
+  opacity: 0.25;
+}
+
+#bar {
+  height: 100%;
+  width: 1px;
+  background: black;
+  position: absolute;
+  left: 500px;
+  opacity: 0.25;
+}
+
+h3 {
+  padding: 4px;
+  opacity: 0.7;
+}
+
+h6 {
+  margin: 0px;
+  opacity: 0.6;
+}
+
+#e {
+  position: absolute;
+  top: -5px;
+  margin-right: 5px;
+}
+
+#b {
+  position: absolute;
+  top: 10px;
+  margin-right: 5px;
+}
+
+#g {
+  position: absolute;
+  top: 25px;
+  margin-right: 5px;
+}
+
+#d {
+  position: absolute;
+  top: 42px;
+  margin-right: 5px;
+}
+
+#a {
+  position: absolute;
+  top: 57px;
+  margin-right: 5px;
+}
+
+#E {
+  position: absolute;
+  top: 74px;
+  margin-right: 5px;
+}
+
+#ccontainer {
+  display: flex;
+  height: 82px;
+  width: 20px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  bottom: 1px;
+}
+
+#dcontainer {
+  height: 8px;
+  width: 1002px;
+  margin-top: 13px;
+  display: flex;
+  margin-left: 40px;
+}
+
+#index {
+  color: rgb(19, 89, 146);
+  width: 503px;
+  position: relative;
+  bottom: -10px;
+}
+
+#index2 {
+  color: rgb(19, 89, 146);
+  width: 499px;
+  position: relative;
+  bottom: -10px;
+}
+
+.notes-container {
+  height: 80px;
+  width: 500px;
+  display: flex;
+  align-items: center;
+}
+
+#econtainer {
+  display: flex;
+  height: 10px;
+  width: 100%;
+  justify-content: center;
+}
+
+.note {
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgba(0, 132, 255, 0.555);
+  border-radius: 10px;
+  box-shadow: 0 0 5px 1px rgba(0, 132, 255, 0.555);
+}
+
+h5 {
+  margin: 0px;
+  opacity: 0.6;
+}
+
+.e {
+  position: relative;
+  bottom: 12%;
+  left: 50%;
+}
+
+.b {
+  position: relative;
+  bottom: 13%;
+  left: 50%;
+}
+
+.g {
+  position: relative;
+  bottom: 13%;
+  left: 50%;
+}
+
+.d {
+  position: relative;
+  bottom: 13%;
+  left: 50%;
+}
+
+.a {
+  position: relative;
+  bottom: 13%;
+  left: 50%;
+}
+
+.E {
+  position: relative;
+  bottom: 11%;
+  left: 50%;
+}
