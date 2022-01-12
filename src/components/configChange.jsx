@@ -51,4 +51,22 @@ export default function configChange (event, props){
             else {props.setMasterNotes(prev=>({...prev, [index1]: {...prev[index1], [index2]:content[3]}}))}
         }
 
+    else if (value.substring(0,5) === '> del') 
+        {
+            const content = value.split('.')
+            if (content.length === 2) {
+                const index1 = parseInt(content[1])
+                props.setMasterNotes(prev=>({...prev, [index1]: undefined}))
+            }
+            else if (content.length === 3 && content[2]!==''){
+                const index1 = parseInt(content[1])
+                const index2 = parseInt(content[2])
+                props.setMasterNotes(prev=>
+                    {const hi = {...prev}
+                    delete hi[index1][index2]
+                    return (hi)
+                })
+            }
+        }
+
 }

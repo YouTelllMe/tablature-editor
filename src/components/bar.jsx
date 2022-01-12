@@ -28,7 +28,7 @@ export default function Bar(props) {
                     <h5 className='d'>{space}</h5>
                     <h5 className='a'>{space}</h5>
                     <h5 className='E'>{space}</h5>
-                    <h6 class='index'>1</h6>
+                    <h6 className='index'>1</h6>
                 </div>
             )
         }
@@ -38,27 +38,28 @@ export default function Bar(props) {
             return (
             <div className='note' key={index} style={{border:'none',boxShadow: 'none'}}>
                     <h5 className='e'>{value.charAt(0) === 'n' ? space : value.charAt(0)}</h5>
-                    <h5 className='b'>{value.charAt(0) === 'n' ? space : value.charAt(1)}</h5>
-                    <h5 className='g'>{value.charAt(0) === 'n' ? space : value.charAt(2)}</h5>
-                    <h5 className='d'>{value.charAt(0) === 'n' ? space : value.charAt(3)}</h5>
-                    <h5 className='a'>{value.charAt(0) === 'n' ? space : value.charAt(4)}</h5>
-                    <h5 className='E'>{value.charAt(0) === 'n' ? space : value.charAt(5)}</h5>
+                    <h5 className='b'>{value.charAt(1) === 'n' ? space : value.charAt(1)}</h5>
+                    <h5 className='g'>{value.charAt(2) === 'n' ? space : value.charAt(2)}</h5>
+                    <h5 className='d'>{value.charAt(3) === 'n' ? space : value.charAt(3)}</h5>
+                    <h5 className='a'>{value.charAt(4) === 'n' ? space : value.charAt(4)}</h5>
+                    <h5 className='E'>{value.charAt(5) === 'n' ? space : value.charAt(5)}</h5>
             </div>)})
         
         return barnotes
         }
         
         else{
+            const barindex = Object.keys(notes)
             const barnotes = Object.values(notes).map((value,index)=>{
             return (
             <div className='note' key={index}>
                     <h5 className='e'>{value.charAt(0) === 'n' ? space : value.charAt(0)}</h5>
-                    <h5 className='b'>{value.charAt(0) === 'n' ? space : value.charAt(1)}</h5>
-                    <h5 className='g'>{value.charAt(0) === 'n' ? space : value.charAt(2)}</h5>
-                    <h5 className='d'>{value.charAt(0) === 'n' ? space : value.charAt(3)}</h5>
-                    <h5 className='a'>{value.charAt(0) === 'n' ? space : value.charAt(4)}</h5>
-                    <h5 className='E'>{value.charAt(0) === 'n' ? space : value.charAt(5)}</h5>
-                    <h6 class='index'>{index+1}</h6>
+                    <h5 className='b'>{value.charAt(1) === 'n' ? space : value.charAt(1)}</h5>
+                    <h5 className='g'>{value.charAt(2) === 'n' ? space : value.charAt(2)}</h5>
+                    <h5 className='d'>{value.charAt(3) === 'n' ? space : value.charAt(3)}</h5>
+                    <h5 className='a'>{value.charAt(4) === 'n' ? space : value.charAt(4)}</h5>
+                    <h5 className='E'>{value.charAt(5) === 'n' ? space : value.charAt(5)}</h5>
+                    <h6 className='index'>{barindex[index]}</h6>
             </div>
             )})
         
