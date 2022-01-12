@@ -67,7 +67,6 @@ h3 {
 
 h6 {
   margin: 0px;
-  opacity: 0.6;
 }
 
 #e {
@@ -125,14 +124,14 @@ h6 {
 }
 
 #index {
-  color: rgb(19, 89, 146);
+  color: rgba(19, 89, 146, 0.7);
   width: 503px;
   position: relative;
   bottom: -10px;
 }
 
 #index2 {
-  color: rgb(19, 89, 146);
+  color: rgba(19, 89, 146, 0.7);
   width: 499px;
   position: relative;
   bottom: -10px;
@@ -199,4 +198,11 @@ h5 {
   position: relative;
   bottom: 11%;
   left: 50%;
+}
+
+.index {
+  position: relative;
+  left: 5px;
+  bottom: 8px;
+  color: rgba(0, 0, 0, 0.6);
 }

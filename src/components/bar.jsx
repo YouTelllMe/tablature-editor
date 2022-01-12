@@ -28,6 +28,7 @@ export default function Bar(props) {
                     <h5 className='d'>{space}</h5>
                     <h5 className='a'>{space}</h5>
                     <h5 className='E'>{space}</h5>
+                    <h6 class='index'>1</h6>
                 </div>
             )
         }
@@ -57,6 +58,7 @@ export default function Bar(props) {
                     <h5 className='d'>{value.charAt(0) === 'n' ? space : value.charAt(3)}</h5>
                     <h5 className='a'>{value.charAt(0) === 'n' ? space : value.charAt(4)}</h5>
                     <h5 className='E'>{value.charAt(0) === 'n' ? space : value.charAt(5)}</h5>
+                    <h6 class='index'>{index+1}</h6>
             </div>
             )})
         

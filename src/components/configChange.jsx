@@ -43,7 +43,12 @@ export default function configChange (event, props){
 
     else if (value.charAt(2) === '.')
         {
-            props.notesManager(value)
+            const content = value.split('.')
+            const index1 = parseInt(content[1])
+            const index2 = parseInt(content[2])
+    
+            if (content[3].trim() === 'clear') {props.setMasterNotes(prev=>({...prev, [index1]: {...prev[index1], [index2]:'nnnnnn'}}))}
+            else {props.setMasterNotes(prev=>({...prev, [index1]: {...prev[index1], [index2]:content[3]}}))}
         }
 
 }
