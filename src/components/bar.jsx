@@ -8,6 +8,7 @@ export default function Bar(props) {
     const space = String.fromCharCode(160)
 
     function createNote (notes, hidden) {
+
         if (hidden === true && notes === undefined){            
             return (<div className='note' style={{border:'none',boxShadow: 'none'}}>
                         <h5 className='e'>{space}</h5>

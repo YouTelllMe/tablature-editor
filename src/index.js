@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import ReactDOM from 'react-dom'
 import Box from './components/box.jsx'
 import Bar from './components/bar.jsx'
@@ -10,15 +10,11 @@ import './App.css'
 
 function App () {
 
-    const [config, setConfig] = useState({numbars:4, hidden: false})
+    const [config, setConfig] = useState({numbars:4, hidden: false, masterNotes: {1:{1:'nnnnnn'},2:{1:'nnnnnn'}}})
     const bars = []
-    const [masterNotes, setMasterNotes] = useState({
-        1:{1:'nnnnnn'},
-        2:{1:'nnnnnn'}
-    })
 
     for (let i = 1; i<(config.numbars)*2; i+=2) {bars.push(i)}
-    const renderBars = bars.map(value=> <Bar key={value} notes1={masterNotes[value]} notes2={masterNotes[value+1]} index={value} hidden={config.hidden}/>)
+    const renderBars = bars.map(value=> <Bar key={value} notes1={config.masterNotes[value]} notes2={config.masterNotes[value+1]} index={value} hidden={config.hidden}/>)
     
     return (
         <div>  
@@ -32,7 +28,7 @@ function App () {
                 <InstructionButton/>
             </div>
             {renderBars}
-            <Console setConfig={(config)=>setConfig(config)} setMasterNotes={(note)=>setMasterNotes(note)}/>
+            <Console config= {config} setConfig={(config)=>setConfig(config)}/>
         </div>
     )
 }

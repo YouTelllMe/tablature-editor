@@ -1,3 +1,4 @@
+
 /*
 Current Commands
 ar = add row of measures
@@ -12,60 +13,65 @@ show = show measure borders
 
 
 
-export default function configChange (event, props){
-    const value = event.target.value.trim()
-    if (value.substring(2,4) === 'ar')
+export default function configChange (value, props){
+
+    // const valueBySpace = value.split(' ')
+    // console.log(valueBySpace)
+
+    // if (valueBySpace.length-1>2){
+    //     const commands = valueBySpace.shift()
+    //     for (const i of valueBySpace) {
+    //         if (i !== '') configChange(i, props)
+    //     }
+    // }
+
+    if (value.substring(0,2) === 'ar')
         {
-            if (value.length === 4)
-                {props.setConfig(prevState=>({...prevState, numbars: prevState.numbars+1}))}
+            if (value.length === 2)
+                return ({numbars: props.config.numbars+1})
             else 
-                {const add = parseInt(value.substring(4,value.length))
-                 props.setConfig(prevState=>({...prevState, numbars: prevState.numbars+add}))}
+                {const add = parseInt(value.substring(2,value.length))
+                return ({numbars: props.config.numbars+add})}
         }
-    else if (value.substring(2,4) === 'dr')
+    else if (value.substring(0,2) === 'dr')
         {
-            if (value.length === 4)
-                {props.setConfig(prevState=>({...prevState, numbars: prevState.numbars-1}))}
+            if (value.length === 2)
+            return ({numbars: props.config.numbars-1})
             else 
-                {const sub = parseInt(value.substring(4,value.length))
-                 props.setConfig(prevState=>({...prevState, numbars: prevState.numbars-sub}))}
-        }
+                {const sub = parseInt(value.substring(2,value.length))
+                    return ({numbars: props.config.numbars-sub})}}
 
-    else if (value === '> hide') 
+    else if (value === 'hide') 
         {
-            props.setConfig(prevState => ({...prevState, hidden: true}))
+            return ({hidden: true})
         }
 
-    else if (value === '> show') 
+    else if (value === 'show') 
         {
-            props.setConfig(prevState => ({...prevState, hidden: false}))
+            return ({hidden: false})
         }
 
-    else if (value.charAt(2) === '.')
+    else if (value.charAt(0) === '.')
         {
             const content = value.split('.')
             const index1 = parseInt(content[1])
             const index2 = parseInt(content[2])
     
-            if (content[3].trim() === 'clear') {props.setMasterNotes(prev=>({...prev, [index1]: {...prev[index1], [index2]:'nnnnnn'}}))}
-            else {props.setMasterNotes(prev=>({...prev, [index1]: {...prev[index1], [index2]:content[3]}}))}
+            if (content[3].trim() === 'clear') { return ({ masterNotes: {[index1]:{[index2]:'nnnnnn'}}})}
+            else {return({ masterNotes:{[index1]:{[index2]:content[3]}}})}
         }
 
-    else if (value.substring(0,5) === '> del') 
+    else if (value.substring(0,3) === 'del') 
         {
             const content = value.split('.')
             if (content.length === 2) {
                 const index1 = parseInt(content[1])
-                props.setMasterNotes(prev=>({...prev, [index1]: undefined}))
+                return ({masterNotes:{[index1]: 'delete'}})
             }
             else if (content.length === 3 && content[2]!==''){
                 const index1 = parseInt(content[1])
                 const index2 = parseInt(content[2])
-                props.setMasterNotes(prev=>
-                    {const hi = {...prev}
-                    delete hi[index1][index2]
-                    return (hi)
-                })
+                return ({masterNotes:{[index1]: {[index2]:'delete'}}})
             }
         }
 
