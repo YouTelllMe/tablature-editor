@@ -13,17 +13,7 @@ show = show measure borders
 
 
 
-export default function configChange (value, props){
-
-    // const valueBySpace = value.split(' ')
-    // console.log(valueBySpace)
-
-    // if (valueBySpace.length-1>2){
-    //     const commands = valueBySpace.shift()
-    //     for (const i of valueBySpace) {
-    //         if (i !== '') configChange(i, props)
-    //     }
-    // }
+export default function configChange (value, props, copy){
 
     if (value.substring(0,2) === 'ar')
         {
@@ -74,5 +64,15 @@ export default function configChange (value, props){
                 return ({masterNotes:{[index1]: {[index2]:'delete'}}})
             }
         }
-
+    else if (value.substring(0,3)==='box')
+    {
+        const content = value.split('.')
+        const note = copy.masterNotes[parseInt(content[1])]
+        const maxbox = parseInt(Object.keys(note)[Object.keys(note).length-1])
+        const returnobj = {masterNotes:{[parseInt(content[1])]:{}}}
+        for (let i=1; i<parseInt(content[2])+1-maxbox; i++){
+            returnobj.masterNotes[parseInt(content[1])][maxbox+i] = 'nnnnnn'
+        }
+        return returnobj
+    }
 }

@@ -17,24 +17,34 @@ export default function (props){
             console.log(codes)
 
             for (const i of codes){
-                const code = configChange(i, props)
-                console.log(code)
+                const code = configChange(i, props, copy)
                 if (code.hasOwnProperty('masterNotes')){
                     const key1 = parseInt(Object.keys(code.masterNotes)[0])
                     if (code.masterNotes[key1] === 'delete'){
                         copy.masterNotes[key1] = {1:'nnnnnn'}
                     }
                     else{
-                        const key2 = parseInt(Object.keys(code.masterNotes[key1])[0])
-                        if (code.masterNotes[key1][key2] === 'delete'){
-                            delete copy.masterNotes[key1][key2]
+                        if (Object.keys(code.masterNotes[key1]).length===1){
+                            const key2 = parseInt(Object.keys(code.masterNotes[key1])[0])
+                            if (code.masterNotes[key1][key2] === 'delete'){
+                                delete copy.masterNotes[key1][key2]
+                            }
+                            else{
+                            if (copy.masterNotes[key1] === undefined){
+                                copy.masterNotes[key1] = {}
+                            }
+                            copy.masterNotes[key1][key2] = code.masterNotes[key1][key2]}}
+
+                        else if (Object.keys(code.masterNotes[key1]).length>1){
+                            for (let i = 1; i<Object.keys(code.masterNotes[key1]).length+1;i++){
+                                let key2 = Object.keys(code.masterNotes[key1])[i-1]
+                                if (copy.masterNotes[key1] === undefined){
+                                    copy.masterNotes[key1] = {}
+                                }
+                                copy.masterNotes[key1][key2] = code.masterNotes[key1][key2]
+                            }
                         }
-                        else{
-                        if (copy.masterNotes[key1] === undefined){
-                            copy.masterNotes[key1] = {}
-                        }
-                        copy.masterNotes[key1][key2] = code.masterNotes[key1][key2]}}
-                    }
+                    }}
                 else{
                     const key1 = Object.keys(code)[0]
                     copy = {...copy, [key1]: code[key1]}
